@@ -1,0 +1,112 @@
+﻿@model Product
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden/>
+    <input asp-for="ImageURL" hidden />
+
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary">Delete Product</h2>
+                    <hr />
+                </div>
+                @*        <div asp-validation-summary="All"></div>
+                *@
+                <div class="mb-3">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" disabled class="form-control">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" rows="3" disabled class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="ISBN"></label>
+                    <input asp-for="ISBN" disabled class="form-control">
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label asp-for="Author"></label>
+                    <input asp-for="Author" disabled class="form-control">
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="ListPrice"></label>
+                    <input asp-for="ListPrice" disabled class="form-control">
+                    <span asp-validation-for="ListPrice" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" disabled class="form-control">
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Price50"></label>
+                    <input asp-for="Price50" disabled class="form-control">
+                    <span asp-validation-for="Price50" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Price100"></label>
+                    <input asp-for="Price100" disabled class="form-control">
+                    <span asp-validation-for="Price100" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ImageURL"></label>
+                    <input type="file" name="file" disabled class="form-control">
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="CategoryId"></label>
+                    <input asp-for="CategoryId" disabled class="form-select">
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="CoverTypeId"></label>
+                    <input asp-for="CoverTypeId" disabled class="form-select">
+                    <span asp-validation-for="CoverTypeId" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-2 pt-4">
+            <img src="@Model.ImageURL"
+                 width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+        </div>
+    </div>
+</form>
+
+@*this is for client side validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml"/>
+    }
+    @*<script>
+        function ValidateDelete() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        }
+    </script>*@
+}
