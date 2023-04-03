@@ -137,7 +137,7 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            if(!_roleManager.RoleExistsAsync(SD.Role_Admin).GetAwaiter().GetResult())
+            /*if (!_roleManager.RoleExistsAsync(SD.Role_Admin).GetAwaiter().GetResult())
             {
                 //_roleManager.CreateAsync(new IdentityRole("Admin")); // this ia a bad way of implementation
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult(); //getawaiter and getresult will convert the asyn method to run synchronusly
@@ -145,7 +145,7 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Indi)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Comp)).GetAwaiter().GetResult();
 
-            }
+            }*/
 
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
